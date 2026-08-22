@@ -85,7 +85,7 @@ export const person: Person = {
   firstName: "Prakhar",
   title: "Machine Learning Engineer · AI & Software Developer",
   headline: "Machine Learning Engineer building predictive systems and applied AI products",
-  location: "Khandwa, MP, India",
+  location: "Indore, MP, India",
   phone: "+91 9302927910",
   bio: "Forward-thinking B.Tech CSE (AI & ML) candidate specializing in machine learning, statistical modeling, exploratory data analysis, and automated ML pipelines. I build, tune, and deploy predictive applications — then wrap them so people can actually use them. Seeking an entry-level Machine Learning or AI Engineer role to ship scalable intelligent systems.",
   philosophy: [
