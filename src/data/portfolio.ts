@@ -1,5 +1,5 @@
 export type SocialLink = {
-  label: "GitHub" | "LinkedIn" | "Twitter" | "Email";
+  label: "GitHub" | "LinkedIn" | "Kaggle" | "Twitter" | "Email";
   href: string;
 };
 
@@ -74,6 +74,7 @@ export type Person = {
   social: {
     github: string;
     linkedin: string;
+    kaggle: string;
     twitter: string;
     email: string;
   };
@@ -102,6 +103,7 @@ export const person: Person = {
   social: {
     github: "https://github.com/coderkhede",
     linkedin: "https://www.linkedin.com/in/prakhar-khedekar-coder",
+    kaggle: "https://www.kaggle.com/prakharkhedekar027",
     twitter: "https://x.com/coderkhede",
     email: "prakharkhede027@gmail.com",
   },
@@ -110,6 +112,10 @@ export const person: Person = {
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/prakhar-khedekar-coder",
+    },
+    {
+      label: "Kaggle",
+      href: "https://www.kaggle.com/prakharkhedekar027",
     },
     { label: "Twitter", href: "https://x.com/coderkhede" },
     { label: "Email", href: "mailto:prakharkhede027@gmail.com" },

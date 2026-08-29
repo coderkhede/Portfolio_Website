@@ -41,9 +41,11 @@ export default function ResumePage() {
           {person.bio}
         </p>
         <p className="mt-4 text-sm text-frost print:text-black">
-          {person.social.email} · {person.phone} · {person.location}
+          <a href={`mailto:${person.social.email}`} className="hover:underline">{person.social.email}</a> · {person.phone} · {person.location}
           <br />
-          {person.social.github} · {person.social.linkedin}
+          <a href={person.social.github} target="_blank" rel="noreferrer" className="hover:underline">{person.social.github.replace("https://", "")}</a> ·{" "}
+          <a href={person.social.linkedin} target="_blank" rel="noreferrer" className="hover:underline">{person.social.linkedin.replace("https://", "")}</a> ·{" "}
+          <a href={person.social.kaggle} target="_blank" rel="noreferrer" className="hover:underline">{person.social.kaggle.replace("https://", "")}</a>
         </p>
 
         <h2 className="mt-10 font-display text-xl font-semibold">Technical skills</h2>

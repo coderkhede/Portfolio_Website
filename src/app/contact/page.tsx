@@ -72,6 +72,19 @@ export default function ContactPage() {
                   </a>
                 </dd>
               </div>
+              <div>
+                <dt className="text-mist">Kaggle</dt>
+                <dd>
+                  <a
+                    href={person.social.kaggle}
+                    className="text-frost underline-offset-4 hover:underline"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    prakharkhedekar027
+                  </a>
+                </dd>
+              </div>
             </dl>
           </div>
         </FadeIn>
