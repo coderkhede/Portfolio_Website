@@ -71,7 +71,7 @@ export function Certificates({
                   {cert.instructor && (
                     <p className="mt-1.5 text-xs text-mist">
                       Instructor / Authority:{" "}
-                      <span className="text-zinc-300">{cert.instructor}</span>
+                      <span className="text-zinc-700 dark:text-zinc-300 font-medium">{cert.instructor}</span>
                     </p>
                   )}
 
@@ -85,7 +85,7 @@ export function Certificates({
                     {cert.highlights.map((highlight) => (
                       <span
                         key={highlight}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-2.5 py-1 text-xs font-medium text-zinc-300"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-black/[0.02] dark:bg-white/[0.03] px-2.5 py-1 text-xs font-medium text-zinc-700 dark:text-zinc-300"
                       >
                         <CheckCircle2 size={12} className="text-emerald-accent" />
                         {highlight}
@@ -102,7 +102,7 @@ export function Certificates({
                       {cert.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="rounded-md border border-line bg-obsidian px-2 py-0.5 text-[11px] text-zinc-400"
+                          className="rounded-md border border-line bg-black/[0.03] dark:bg-obsidian px-2 py-0.5 text-[11px] text-zinc-600 dark:text-zinc-400"
                         >
                           {skill}
                         </span>
@@ -115,7 +115,7 @@ export function Certificates({
                     <button
                       type="button"
                       onClick={() => setSelectedCert(cert)}
-                      className="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.04] px-4 py-2 text-xs font-medium text-frost transition hover:border-violet-accent/60 hover:bg-white/[0.08]"
+                      className="inline-flex items-center gap-2 rounded-full border border-line bg-black/[0.03] dark:bg-white/[0.04] px-4 py-2 text-xs font-medium text-frost transition hover:border-violet-accent/60 hover:bg-black/[0.06] dark:hover:bg-white/[0.08]"
                     >
                       <Maximize2 size={13} className="text-violet-accent" />
                       View Certificate

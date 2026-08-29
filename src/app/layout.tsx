@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Syne } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { person, site } from "@/data/portfolio";
 import "./globals.css";
 
@@ -51,18 +52,38 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `
+  try {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') {
+      document.documentElement.classList.add(stored);
+      document.documentElement.classList.remove(stored === 'dark' ? 'light' : 'dark');
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.add(prefersDark ? 'dark' : 'light');
+    }
+  } catch (e) {}
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${display.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${sans.variable} ${display.variable}`}
+    >
       <body className="mesh-bg font-sans antialiased">
-        <div className="grain" aria-hidden />
-        <Navbar />
-        <main className="relative z-10">{children}</main>
-        <Footer />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <ThemeProvider>
+          <div className="grain" aria-hidden />
+          <Navbar />
+          <main className="relative z-10">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

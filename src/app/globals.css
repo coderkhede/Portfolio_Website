@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root, html.dark {
   color-scheme: dark;
   --bg: #09090b;
   --ink: #121215;
@@ -11,6 +11,29 @@
   --mist: #a1a1aa;
   --violet: #8b5cf6;
   --emerald: #10b981;
+  --nav-bg: rgba(18, 18, 21, 0.75);
+  --mesh-bg-1: rgba(139, 92, 246, 0.2);
+  --mesh-bg-2: rgba(16, 185, 129, 0.12);
+  --mesh-bg-3: rgba(139, 92, 246, 0.1);
+  --grain-opacity: 0.045;
+  --shadow-glow: 0 0 80px -20px rgba(139, 92, 246, 0.55);
+}
+
+html.light {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --ink: #ffffff;
+  --line: #e2e8f0;
+  --frost: #09090b;
+  --mist: #64748b;
+  --violet: #7c3aed;
+  --emerald: #059669;
+  --nav-bg: rgba(255, 255, 255, 0.82);
+  --mesh-bg-1: rgba(139, 92, 246, 0.12);
+  --mesh-bg-2: rgba(16, 185, 129, 0.08);
+  --mesh-bg-3: rgba(139, 92, 246, 0.06);
+  --grain-opacity: 0.02;
+  --shadow-glow: 0 10px 40px -10px rgba(139, 92, 246, 0.18);
 }
 
 * {
@@ -26,6 +49,7 @@ body {
   background-color: var(--bg);
   color: var(--frost);
   font-feature-settings: "ss01" on, "cv11" on;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ::selection {
@@ -38,16 +62,16 @@ body {
   position: fixed;
   inset: 0;
   z-index: 50;
-  opacity: 0.045;
+  opacity: var(--grain-opacity);
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .mesh-bg {
-  background-color: #09090b;
-  background-image: radial-gradient(ellipse 80% 55% at 12% -8%, rgba(139, 92, 246, 0.2), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 92% 8%, rgba(16, 185, 129, 0.12), transparent 50%),
-    radial-gradient(ellipse 40% 30% at 50% 110%, rgba(139, 92, 246, 0.1), transparent 50%);
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse 80% 55% at 12% -8%, var(--mesh-bg-1), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 92% 8%, var(--mesh-bg-2), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50% 110%, var(--mesh-bg-3), transparent 50%);
 }
 
 .frame-glow {
@@ -65,6 +89,10 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+html.light .frame-glow::before {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.7), rgba(226, 232, 240, 0.8), rgba(5, 150, 105, 0.6));
 }
 
 @layer utilities {

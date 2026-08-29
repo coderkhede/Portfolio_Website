@@ -22,7 +22,7 @@ export function Hero() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href="#work"
-            className="inline-flex items-center gap-2 rounded-full bg-frost px-5 py-2.5 text-sm font-medium text-obsidian transition hover:bg-white"
+            className="inline-flex items-center gap-2 rounded-full bg-frost px-5 py-2.5 text-sm font-medium text-obsidian transition hover:opacity-90 shadow-sm"
           >
             Explore Work
             <ArrowDownRight size={16} />

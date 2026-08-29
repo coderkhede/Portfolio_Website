@@ -37,7 +37,7 @@ export function TechStack() {
                   {category.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-300 transition hover:border-emerald-accent/40 hover:text-frost"
+                      className="rounded-full border border-line bg-black/[0.02] dark:bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-700 dark:text-zinc-300 transition hover:border-emerald-accent/40 hover:text-frost"
                     >
                       {item}
                     </li>
